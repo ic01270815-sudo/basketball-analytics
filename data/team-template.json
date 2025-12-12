@@ -1,0 +1,44 @@
+{
+  "id": "your-team",
+  "name": "Your Team Name",
+  "location": "City, State",
+  "season": "2024-2025",
+  "players": [
+    {
+      "id": "p1",
+      "name": "Player Name",
+      "number": 1,
+      "position": "PG",
+      "height": "5'6\"",
+      "grade": 12,
+      "stats": {
+        "gamesPlayed": 24,
+        "pointsPerGame": 10.5,
+        "reboundsPerGame": 5.2,
+        "assistsPerGame": 3.1,
+        "stealsPerGame": 2.3,
+        "blocksPerGame": 0.5,
+        "fieldGoalPercentage": 42.5,
+        "threePointPercentage": 35.2,
+        "freeThrowPercentage": 75.8,
+        "turnoversPerGame": 2.1,
+        "minutesPerGame": 28.5
+      }
+    }
+  ],
+  "teamStats": {
+    "wins": 15,
+    "losses": 5,
+    "pointsPerGame": 58.2,
+    "pointsAllowedPerGame": 45.3,
+    "reboundsPerGame": 32.1,
+    "assistsPerGame": 16.5,
+    "stealsPerGame": 14.2,
+    "blocksPerGame": 6.8,
+    "fieldGoalPercentage": 42.3,
+    "threePointPercentage": 32.5,
+    "freeThrowPercentage": 72.1,
+    "turnoversPerGame": 15.2
+  }
+}
+
