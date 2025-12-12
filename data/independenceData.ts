@@ -1,23 +1,14 @@
 import { Team } from '@/types/basketball';
 import { processIndependenceData } from '@/utils/processIndependenceData';
-
-// Try to import the Independence data
-// If the file doesn't exist, create an empty team as fallback
-let independenceDataRaw: any[] = [];
-
-try {
-  // Dynamic import to handle missing file gracefully
-  const data = require('./independence_data.json');
-  independenceDataRaw = Array.isArray(data) ? data : [];
-} catch (error) {
-  console.warn('independence_data.json not found. Please copy your file to my-next-app/data/independence_data.json');
-  independenceDataRaw = [];
-}
+import independenceDataRaw from './independence_data.json';
 
 // Process the Independence data automatically
-// If no data, return a placeholder team
-export const independenceTeam: Team = independenceDataRaw.length > 0 
-  ? processIndependenceData(independenceDataRaw)
+// Ensure the data is an array
+const dataArray = Array.isArray(independenceDataRaw) ? independenceDataRaw : [];
+
+// Process the Independence data
+export const independenceTeam: Team = dataArray.length > 0 
+  ? processIndependenceData(dataArray)
   : {
       id: 'independence',
       name: 'Independence Varsity Girls Basketball',
