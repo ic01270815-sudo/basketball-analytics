@@ -2,19 +2,10 @@
 
 import { useState } from 'react';
 import { Team } from '@/types/basketball';
-import { processIndependenceData } from '@/utils/processIndependenceData';
+import { processIndependenceData, GameRecord } from '@/utils/processIndependenceData';
 
 interface DataImportProps {
   onTeamImported: (team: Team) => void;
-}
-
-interface GameRecord {
-  Opponent?: string;
-  Player?: string;
-  MINS?: number;
-  FGA?: number;
-  'FG%'?: number;
-  [key: string]: any;
 }
 
 export default function DataImport({ onTeamImported }: DataImportProps) {
@@ -28,7 +19,9 @@ export default function DataImport({ onTeamImported }: DataImportProps) {
            data.length > 0 && 
            data[0].Opponent !== undefined && 
            data[0].Player !== undefined &&
-           data[0].MINS !== undefined;
+           data[0].MINS !== undefined &&
+           data[0].FGA !== undefined &&
+           typeof data[0]['FG%'] !== 'undefined';
   };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

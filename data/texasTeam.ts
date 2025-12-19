@@ -3,6 +3,18 @@ import { Team, Player } from '@/types/basketball';
 // Average Texas Girls Varsity Basketball Team Data
 // Based on typical high school varsity statistics
 
+// Helper function to add default detailed stats
+const addDetailedStats = (stats: any) => ({
+  ...stats,
+  fieldGoalAttemptsPerGame: stats.fieldGoalAttemptsPerGame ?? 0,
+  twoPointAttemptsPerGame: stats.twoPointAttemptsPerGame ?? 0,
+  twoPointPercentage: stats.twoPointPercentage ?? 0,
+  threePointAttemptsPerGame: stats.threePointAttemptsPerGame ?? 0,
+  freeThrowAttemptsPerGame: stats.freeThrowAttemptsPerGame ?? 0,
+  offensiveReboundsPerGame: stats.offensiveReboundsPerGame ?? 0,
+  defensiveReboundsPerGame: stats.defensiveReboundsPerGame ?? 0,
+});
+
 export const texasTeam: Team = {
   id: 'texas-avg',
   name: 'Average Texas Varsity Girls Basketball',
@@ -16,7 +28,7 @@ export const texasTeam: Team = {
       position: 'PG',
       height: "5'4\"",
       grade: 12,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 24,
         pointsPerGame: 8.2,
         reboundsPerGame: 2.1,
@@ -28,7 +40,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 72.3,
         turnoversPerGame: 2.4,
         minutesPerGame: 28.5,
-      },
+        fieldGoalAttemptsPerGame: 8.5,
+        twoPointAttemptsPerGame: 5.2,
+        twoPointPercentage: 42.3,
+        threePointAttemptsPerGame: 3.3,
+        freeThrowAttemptsPerGame: 2.8,
+        offensiveReboundsPerGame: 0.5,
+        defensiveReboundsPerGame: 1.6,
+      }),
     },
     {
       id: 'p2',
@@ -37,7 +56,7 @@ export const texasTeam: Team = {
       position: 'SG',
       height: "5'6\"",
       grade: 11,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 24,
         pointsPerGame: 11.5,
         reboundsPerGame: 3.2,
@@ -49,7 +68,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 78.5,
         turnoversPerGame: 2.1,
         minutesPerGame: 26.8,
-      },
+        fieldGoalAttemptsPerGame: 10.2,
+        twoPointAttemptsPerGame: 6.1,
+        twoPointPercentage: 44.3,
+        threePointAttemptsPerGame: 4.1,
+        freeThrowAttemptsPerGame: 3.2,
+        offensiveReboundsPerGame: 0.8,
+        defensiveReboundsPerGame: 2.4,
+      }),
     },
     {
       id: 'p3',
@@ -58,7 +84,7 @@ export const texasTeam: Team = {
       position: 'SF',
       height: "5'8\"",
       grade: 12,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 24,
         pointsPerGame: 9.8,
         reboundsPerGame: 5.4,
@@ -70,7 +96,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 69.2,
         turnoversPerGame: 2.6,
         minutesPerGame: 27.2,
-      },
+        fieldGoalAttemptsPerGame: 9.8,
+        twoPointAttemptsPerGame: 7.2,
+        twoPointPercentage: 41.7,
+        threePointAttemptsPerGame: 2.6,
+        freeThrowAttemptsPerGame: 2.5,
+        offensiveReboundsPerGame: 1.8,
+        defensiveReboundsPerGame: 3.6,
+      }),
     },
     {
       id: 'p4',
@@ -79,7 +112,7 @@ export const texasTeam: Team = {
       position: 'PF',
       height: "5'10\"",
       grade: 11,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 24,
         pointsPerGame: 7.3,
         reboundsPerGame: 7.8,
@@ -91,7 +124,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 65.8,
         turnoversPerGame: 2.3,
         minutesPerGame: 24.5,
-      },
+        fieldGoalAttemptsPerGame: 7.2,
+        twoPointAttemptsPerGame: 6.8,
+        twoPointPercentage: 45.6,
+        threePointAttemptsPerGame: 0.4,
+        freeThrowAttemptsPerGame: 2.1,
+        offensiveReboundsPerGame: 2.8,
+        defensiveReboundsPerGame: 5.0,
+      }),
     },
     {
       id: 'p5',
@@ -100,7 +140,7 @@ export const texasTeam: Team = {
       position: 'C',
       height: "6'0\"",
       grade: 12,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 24,
         pointsPerGame: 10.2,
         reboundsPerGame: 9.1,
@@ -112,7 +152,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 61.4,
         turnoversPerGame: 2.8,
         minutesPerGame: 25.3,
-      },
+        fieldGoalAttemptsPerGame: 9.5,
+        twoPointAttemptsPerGame: 9.1,
+        twoPointPercentage: 47.3,
+        threePointAttemptsPerGame: 0.4,
+        freeThrowAttemptsPerGame: 3.2,
+        offensiveReboundsPerGame: 3.2,
+        defensiveReboundsPerGame: 5.9,
+      }),
     },
     {
       id: 'p6',
@@ -121,7 +168,7 @@ export const texasTeam: Team = {
       position: 'PG',
       height: "5'3\"",
       grade: 10,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 20,
         pointsPerGame: 4.5,
         reboundsPerGame: 1.8,
@@ -133,7 +180,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 68.5,
         turnoversPerGame: 1.9,
         minutesPerGame: 15.2,
-      },
+        fieldGoalAttemptsPerGame: 4.8,
+        twoPointAttemptsPerGame: 2.9,
+        twoPointPercentage: 37.9,
+        threePointAttemptsPerGame: 1.9,
+        freeThrowAttemptsPerGame: 1.2,
+        offensiveReboundsPerGame: 0.3,
+        defensiveReboundsPerGame: 1.5,
+      }),
     },
     {
       id: 'p7',
@@ -142,7 +196,7 @@ export const texasTeam: Team = {
       position: 'SG',
       height: "5'5\"",
       grade: 10,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 22,
         pointsPerGame: 5.8,
         reboundsPerGame: 2.5,
@@ -154,7 +208,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 71.2,
         turnoversPerGame: 1.7,
         minutesPerGame: 18.5,
-      },
+        fieldGoalAttemptsPerGame: 5.2,
+        twoPointAttemptsPerGame: 3.1,
+        twoPointPercentage: 40.3,
+        threePointAttemptsPerGame: 2.1,
+        freeThrowAttemptsPerGame: 1.5,
+        offensiveReboundsPerGame: 0.5,
+        defensiveReboundsPerGame: 2.0,
+      }),
     },
     {
       id: 'p8',
@@ -163,7 +224,7 @@ export const texasTeam: Team = {
       position: 'SF',
       height: "5'7\"",
       grade: 11,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 23,
         pointsPerGame: 6.2,
         reboundsPerGame: 4.1,
@@ -175,7 +236,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 67.8,
         turnoversPerGame: 2.0,
         minutesPerGame: 19.8,
-      },
+        fieldGoalAttemptsPerGame: 5.8,
+        twoPointAttemptsPerGame: 4.2,
+        twoPointPercentage: 41.7,
+        threePointAttemptsPerGame: 1.6,
+        freeThrowAttemptsPerGame: 1.8,
+        offensiveReboundsPerGame: 1.2,
+        defensiveReboundsPerGame: 2.9,
+      }),
     },
     {
       id: 'p9',
@@ -184,7 +252,7 @@ export const texasTeam: Team = {
       position: 'PF',
       height: "5'9\"",
       grade: 9,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 18,
         pointsPerGame: 3.8,
         reboundsPerGame: 4.5,
@@ -196,7 +264,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 63.2,
         turnoversPerGame: 2.1,
         minutesPerGame: 12.3,
-      },
+        fieldGoalAttemptsPerGame: 3.5,
+        twoPointAttemptsPerGame: 3.2,
+        twoPointPercentage: 38.1,
+        threePointAttemptsPerGame: 0.3,
+        freeThrowAttemptsPerGame: 1.2,
+        offensiveReboundsPerGame: 1.5,
+        defensiveReboundsPerGame: 3.0,
+      }),
     },
     {
       id: 'p10',
@@ -205,7 +280,7 @@ export const texasTeam: Team = {
       position: 'C',
       height: "5'11\"",
       grade: 10,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 19,
         pointsPerGame: 4.2,
         reboundsPerGame: 5.8,
@@ -217,7 +292,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 59.8,
         turnoversPerGame: 2.4,
         minutesPerGame: 14.5,
-      },
+        fieldGoalAttemptsPerGame: 4.2,
+        twoPointAttemptsPerGame: 4.0,
+        twoPointPercentage: 42.5,
+        threePointAttemptsPerGame: 0.2,
+        freeThrowAttemptsPerGame: 1.8,
+        offensiveReboundsPerGame: 2.1,
+        defensiveReboundsPerGame: 3.7,
+      }),
     },
     {
       id: 'p11',
@@ -226,7 +308,7 @@ export const texasTeam: Team = {
       position: 'G',
       height: "5'4\"",
       grade: 11,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 21,
         pointsPerGame: 3.5,
         reboundsPerGame: 1.9,
@@ -238,7 +320,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 66.5,
         turnoversPerGame: 1.6,
         minutesPerGame: 11.8,
-      },
+        fieldGoalAttemptsPerGame: 3.2,
+        twoPointAttemptsPerGame: 1.9,
+        twoPointPercentage: 36.8,
+        threePointAttemptsPerGame: 1.3,
+        freeThrowAttemptsPerGame: 1.0,
+        offensiveReboundsPerGame: 0.3,
+        defensiveReboundsPerGame: 1.6,
+      }),
     },
     {
       id: 'p12',
@@ -247,7 +336,7 @@ export const texasTeam: Team = {
       position: 'F',
       height: "5'7\"",
       grade: 9,
-      stats: {
+      stats: addDetailedStats({
         gamesPlayed: 15,
         pointsPerGame: 2.8,
         reboundsPerGame: 3.2,
@@ -259,7 +348,14 @@ export const texasTeam: Team = {
         freeThrowPercentage: 62.1,
         turnoversPerGame: 1.8,
         minutesPerGame: 9.5,
-      },
+        fieldGoalAttemptsPerGame: 2.8,
+        twoPointAttemptsPerGame: 2.1,
+        twoPointPercentage: 35.7,
+        threePointAttemptsPerGame: 0.7,
+        freeThrowAttemptsPerGame: 0.9,
+        offensiveReboundsPerGame: 0.9,
+        defensiveReboundsPerGame: 2.3,
+      }),
     },
   ],
   teamStats: {

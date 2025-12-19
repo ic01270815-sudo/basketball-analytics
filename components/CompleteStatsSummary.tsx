@@ -7,6 +7,13 @@ interface CompleteStatsSummaryProps {
   texasTeam: Team;
 }
 
+interface StatItem {
+  label: string;
+  yourTeam: number;
+  texasTeam: number;
+  isPercentage?: boolean;
+}
+
 export default function CompleteStatsSummary({ yourTeam, texasTeam }: CompleteStatsSummaryProps) {
   const formatStat = (value: number | undefined, isPercentage: boolean = false, decimals: number = 1): string => {
     if (value === undefined || value === null) return 'N/A';
@@ -16,7 +23,7 @@ export default function CompleteStatsSummary({ yourTeam, texasTeam }: CompleteSt
     return value.toFixed(decimals);
   };
 
-  const statsSections = [
+  const statsSections: Array<{ title: string; stats: StatItem[] }> = [
     {
       title: 'Scoring Averages',
       stats: [
