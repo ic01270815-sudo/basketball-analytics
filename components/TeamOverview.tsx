@@ -106,10 +106,11 @@ export default function TeamOverview({ yourTeam, texasTeam, showBoth = true }: T
   const hasIndependence = teams.some(team => team.name.includes('Independence'));
   
   // Tooltip formatter to ensure all values show only 1 decimal place
-  const tooltipFormatter = (value: number | string, name?: string) => {
+  const tooltipFormatter = (value: number | string, name?: string | number) => {
     if (typeof value === 'number') {
       // Check if this is a percentage stat (FG%, 2PT%, 3PT%, FT%)
-      const isPercentage = name && (name.includes('%') || name.includes('FG%') || name.includes('PT%') || name.includes('FT%'));
+      const nameStr = typeof name === 'string' ? name : String(name || '');
+      const isPercentage = nameStr && (nameStr.includes('%') || nameStr.includes('FG%') || nameStr.includes('PT%') || nameStr.includes('FT%'));
       if (isPercentage) {
         return `${value.toFixed(1)}%`;
       }
