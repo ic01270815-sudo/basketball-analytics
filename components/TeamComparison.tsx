@@ -13,7 +13,7 @@ export default function TeamComparison({ yourTeam, texasTeam }: TeamComparisonPr
   const comparison = compareTeams(yourTeam, texasTeam);
 
   // Tooltip formatter to ensure all values show only 1 decimal place
-  const tooltipFormatter = (value: number | string) => {
+  const tooltipFormatter = (value: number | string, name?: string | number) => {
     if (typeof value === 'number') {
       return value.toFixed(1);
     }

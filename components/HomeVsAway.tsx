@@ -208,7 +208,7 @@ export default function HomeVsAway({ yourTeam, rawGameData }: HomeVsAwayProps) {
   const { home, away } = locationStats;
 
   // Tooltip formatter
-  const tooltipFormatter = (value: number | string) => {
+  const tooltipFormatter = (value: number | string, name?: string | number) => {
     if (typeof value === 'number') {
       return value.toFixed(1);
     }
