@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Basketball Team Analytics",
+  title: "Independence Girls Varsity Basketball Team Analytics",
   description: "Compare and analyze basketball team performance",
 };
 

@@ -43,7 +43,6 @@ export interface TeamStats {
   wins: number;
   losses: number;
   pointsPerGame: number;
-  pointsAllowedPerGame: number;
   reboundsPerGame: number;
   assistsPerGame: number;
   stealsPerGame: number;

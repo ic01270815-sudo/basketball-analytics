@@ -12,6 +12,14 @@ interface TeamComparisonProps {
 export default function TeamComparison({ yourTeam, texasTeam }: TeamComparisonProps) {
   const comparison = compareTeams(yourTeam, texasTeam);
 
+  // Tooltip formatter to ensure all values show only 1 decimal place
+  const tooltipFormatter = (value: number | string) => {
+    if (typeof value === 'number') {
+      return value.toFixed(1);
+    }
+    return value;
+  };
+
   const comparisonData = [
     {
       stat: 'Points/Game',
@@ -179,14 +187,14 @@ export default function TeamComparison({ yourTeam, texasTeam }: TeamComparisonPr
               />
               <YAxis 
                 domain={[0, 'auto']}
-                allowDecimals={false}
+                allowDecimals={true}
                 tickCount={6}
                 tickFormatter={(value) => {
                   if (value >= 1000) return `${(value / 1000).toFixed(1)}k`;
-                  return value.toString();
+                  return value.toFixed(1);
                 }}
               />
-              <Tooltip />
+              <Tooltip formatter={tooltipFormatter} />
               <Legend wrapperStyle={{ paddingTop: '30px' }} />
               <Bar dataKey={yourTeam.name} fill="#9333ea" />
               <Bar dataKey={texasTeam.name} fill="#000000" />
@@ -210,14 +218,14 @@ export default function TeamComparison({ yourTeam, texasTeam }: TeamComparisonPr
               />
               <YAxis 
                 domain={[0, 'auto']}
-                allowDecimals={false}
+                allowDecimals={true}
                 tickCount={6}
                 tickFormatter={(value) => {
                   if (value >= 1000) return `${(value / 1000).toFixed(1)}k`;
-                  return value.toString();
+                  return value.toFixed(1);
                 }}
               />
-              <Tooltip />
+              <Tooltip formatter={tooltipFormatter} />
               <Legend wrapperStyle={{ paddingTop: '30px' }} />
               <Bar dataKey={yourTeam.name} fill="#9333ea" />
               <Bar dataKey={texasTeam.name} fill="#000000" />

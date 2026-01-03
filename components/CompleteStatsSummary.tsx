@@ -15,12 +15,12 @@ interface StatItem {
 }
 
 export default function CompleteStatsSummary({ yourTeam, texasTeam }: CompleteStatsSummaryProps) {
-  const formatStat = (value: number | undefined, isPercentage: boolean = false, decimals: number = 1): string => {
+  const formatStat = (value: number | undefined, isPercentage: boolean = false): string => {
     if (value === undefined || value === null) return 'N/A';
     if (isPercentage) {
-      return `${value.toFixed(decimals)}%`;
+      return `${value.toFixed(1)}%`;
     }
-    return value.toFixed(decimals);
+    return value.toFixed(1);
   };
 
   const statsSections: Array<{ title: string; stats: StatItem[] }> = [
@@ -28,7 +28,6 @@ export default function CompleteStatsSummary({ yourTeam, texasTeam }: CompleteSt
       title: 'Scoring Averages',
       stats: [
         { label: 'Points Per Game', yourTeam: yourTeam.teamStats.pointsPerGame, texasTeam: texasTeam.teamStats.pointsPerGame },
-        { label: 'Points Allowed Per Game', yourTeam: yourTeam.teamStats.pointsAllowedPerGame, texasTeam: texasTeam.teamStats.pointsAllowedPerGame },
       ],
     },
     {

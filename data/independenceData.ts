@@ -1,10 +1,13 @@
 import { Team } from '@/types/basketball';
-import { processIndependenceData } from '@/utils/processIndependenceData';
+import { processIndependenceData, GameRecord } from '@/utils/processIndependenceData';
 import independenceDataRaw from './independence_data.json';
 
 // Process the Independence data automatically
 // Ensure the data is an array
 const dataArray = Array.isArray(independenceDataRaw) ? independenceDataRaw : [];
+
+// Export raw game data for home/away analysis
+export const independenceRawGameData: GameRecord[] = dataArray as GameRecord[];
 
 // Process the Independence data
 export const independenceTeam: Team = dataArray.length > 0 
@@ -19,7 +22,6 @@ export const independenceTeam: Team = dataArray.length > 0
         wins: 0,
         losses: 0,
         pointsPerGame: 0,
-        pointsAllowedPerGame: 0,
         reboundsPerGame: 0,
         assistsPerGame: 0,
         stealsPerGame: 0,

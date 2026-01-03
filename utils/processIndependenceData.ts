@@ -1,6 +1,7 @@
 import { Team, Player } from '@/types/basketball';
 
 export interface GameRecord {
+  Location?: string; // "Home" or "Away"
   Opponent: string;
   Player: string;
   MINS: number;
@@ -250,9 +251,6 @@ export function processIndependenceData(rawData: GameRecord[]): Team {
   const estimatedWins = Math.round(totalGames * 0.5); // Placeholder
   const estimatedLosses = totalGames - estimatedWins;
 
-  // Estimate points allowed (would need opponent data)
-  const pointsAllowedPerGame = pointsPerGame * 0.92; // Rough estimate
-
   const team: Team = {
     id: 'independence',
     name: 'Independence Varsity Girls Basketball',
@@ -263,7 +261,6 @@ export function processIndependenceData(rawData: GameRecord[]): Team {
       wins: estimatedWins,
       losses: estimatedLosses,
       pointsPerGame: pointsPerGame,
-      pointsAllowedPerGame: pointsAllowedPerGame,
       reboundsPerGame: reboundsPerGame,
       assistsPerGame: assistsPerGame,
       stealsPerGame: stealsPerGame,

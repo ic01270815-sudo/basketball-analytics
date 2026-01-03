@@ -362,7 +362,6 @@ export const texasTeam: Team = {
     wins: 14,
     losses: 10,
     pointsPerGame: 52.8,
-    pointsAllowedPerGame: 48.3,
     reboundsPerGame: 28.5,
     assistsPerGame: 14.2,
     stealsPerGame: 12.8,

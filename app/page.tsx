@@ -2,16 +2,15 @@
 
 import { useState } from 'react';
 import { texasTeam } from '@/data/texasTeam';
-import { independenceTeam } from '@/data/independenceData';
+import { independenceTeam, independenceRawGameData } from '@/data/independenceData';
 import { Team } from '@/types/basketball';
-import TeamComparison from '@/components/TeamComparison';
 import TeamOverview from '@/components/TeamOverview';
 import PlayerStatsTable from '@/components/PlayerStatsTable';
-import CompleteStatsSummary from '@/components/CompleteStatsSummary';
+import HomeVsAway from '@/components/HomeVsAway';
 import { addDetailedStatsToTeam } from '@/utils/addDetailedStats';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'comparison' | 'players' | 'summary'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'players' | 'homeaway'>('overview');
   
   // Automatically load Independence team data
   const yourTeam = independenceTeam;
@@ -20,8 +19,16 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-3xl font-bold text-gray-900">Basketball Team Analytics</h1>
-          <p className="text-gray-600 mt-1">Compare Independence Varsity Girls Basketball vs Average Texas Varsity Girls Basketball</p>
+          <div className="flex items-center gap-4">
+            <div className="relative w-16 h-16 flex-shrink-0">
+              <img
+                src="/independence-logo.svg"
+                alt="Independence Knights Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900">Independence Girls Varsity Basketball Team Analytics</h1>
+          </div>
         </div>
       </header>
 
@@ -38,17 +45,17 @@ export default function Home() {
                     : 'border-transparent text-gray-700 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Team Overview
+                Team Comparison
               </button>
               <button
-                onClick={() => setActiveTab('comparison')}
+                onClick={() => setActiveTab('homeaway')}
                 className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'comparison'
+                  activeTab === 'homeaway'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-700 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Team Comparison
+                Home vs Away
               </button>
               <button
                 onClick={() => setActiveTab('players')}
@@ -60,16 +67,6 @@ export default function Home() {
               >
                 Player Stats
               </button>
-              <button
-                onClick={() => setActiveTab('summary')}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'summary'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-700 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                All Averages
-              </button>
             </nav>
           </div>
         )}
@@ -80,14 +77,11 @@ export default function Home() {
             {activeTab === 'overview' && (
               <TeamOverview yourTeam={yourTeam} texasTeam={addDetailedStatsToTeam(texasTeam)} />
             )}
-            {activeTab === 'comparison' && (
-              <TeamComparison yourTeam={yourTeam} texasTeam={addDetailedStatsToTeam(texasTeam)} />
-            )}
             {activeTab === 'players' && (
               <PlayerStatsTable yourTeam={yourTeam} texasTeam={addDetailedStatsToTeam(texasTeam)} />
             )}
-            {activeTab === 'summary' && (
-              <CompleteStatsSummary yourTeam={yourTeam} texasTeam={addDetailedStatsToTeam(texasTeam)} />
+            {activeTab === 'homeaway' && (
+              <HomeVsAway yourTeam={yourTeam} rawGameData={independenceRawGameData} />
             )}
           </>
         ) : (
