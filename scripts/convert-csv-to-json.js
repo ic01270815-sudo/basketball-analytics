@@ -74,3 +74,4 @@ fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
 console.log(`Converted ${data.length} records to JSON`);
 console.log(`Sample record:`, JSON.stringify(data[0], null, 2));
 
+
