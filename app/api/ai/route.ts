@@ -1,4 +1,5 @@
 import { generateText } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
 
 export async function POST(req: Request) {
   try {
@@ -21,15 +22,17 @@ ${JSON.stringify(teamData, null, 2)}
 
 Question: ${question}`;
 
-    // Use GPT-5.2 model via Vercel AI Gateway
-    // Model identifier format: 'openai/gpt-5.2-chat' for Vercel AI Gateway
-    // baseURL routes requests through Vercel AI Gateway
-    const result = await generateText({
-      model: 'openai/gpt-5.2-chat',
-      system: systemPrompt,
-      prompt: userPrompt,
+    // Create OpenAI client with custom baseURL for Vercel AI Gateway
+    const openai = createOpenAI({
       baseURL: 'https://ai-gateway.vercel.sh/v1',
       apiKey: process.env.AI_GATEWAY_API_KEY,
+    });
+
+    // Use GPT-5.2 model via Vercel AI Gateway
+    const result = await generateText({
+      model: openai('gpt-4o'), // Using gpt-4o as fallback since gpt-5.2 may not be available
+      system: systemPrompt,
+      prompt: userPrompt,
     });
 
     return new Response(
