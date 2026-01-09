@@ -7,10 +7,11 @@ import { Team } from '@/types/basketball';
 import TeamOverview from '@/components/TeamOverview';
 import PlayerStatsTable from '@/components/PlayerStatsTable';
 import HomeVsAway from '@/components/HomeVsAway';
+import AIInsights from '@/components/AIInsights';
 import { addDetailedStatsToTeam } from '@/utils/addDetailedStats';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'players' | 'homeaway'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'players' | 'homeaway' | 'ai'>('overview');
   
   // Automatically load Independence team data
   const yourTeam = independenceTeam;
@@ -67,6 +68,16 @@ export default function Home() {
               >
                 Player Stats
               </button>
+              <button
+                onClick={() => setActiveTab('ai')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'ai'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-700 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                AI Insights
+              </button>
             </nav>
           </div>
         )}
@@ -82,6 +93,9 @@ export default function Home() {
             )}
             {activeTab === 'homeaway' && (
               <HomeVsAway yourTeam={yourTeam} rawGameData={independenceRawGameData} />
+            )}
+            {activeTab === 'ai' && (
+              <AIInsights yourTeam={yourTeam} texasTeam={addDetailedStatsToTeam(texasTeam)} />
             )}
           </>
         ) : (
