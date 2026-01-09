@@ -28,9 +28,9 @@ Question: ${question}`;
       apiKey: process.env.AI_GATEWAY_API_KEY,
     });
 
-    // Use GPT-5.2 model via Vercel AI Gateway
+    // Generate text using the configured OpenAI model
     const result = await generateText({
-      model: openai('gpt-4o'), // Using gpt-4o as fallback since gpt-5.2 may not be available
+      model: openai('gpt-4o'), // Using gpt-4o model
       system: systemPrompt,
       prompt: userPrompt,
     });
